@@ -42,7 +42,7 @@ class   ParseUrl  {
 
         String urlAddress = scanner.nextLine();
 
-        String regexExpression = "\\b.*?\\?|\\b=\\w&|\\b=\\d&|.\\w*&|\\b=.\\w+\\b"; // This regex gets rid of all stuff that host, cookie, name and the like
+        String regexExpression = "\\b.*?\\?|\\b=\\w&|\\b=\\d&|.\\w*&|\\b=.\\w+\\b"; // This regex gets rid of all the stuff that is not host, cookie, name and the like
         String[] urlAddressSplitItems = urlAddress.split(regexExpression);
 
         for (int i = 1; i < urlAddressSplitItems.length; i++) {
