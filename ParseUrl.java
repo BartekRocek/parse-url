@@ -1,13 +1,13 @@
-
 import java.util.*;
-import java.lang.*;
 
 class   ParseUrl  {
 
     public static void checkUrl(String urlAddress, String phraseToReplace) {
 
         String urlStringModified = urlAddress.replace(phraseToReplace, "~");
+
         char[] newUrlStringToArray = urlStringModified.toCharArray();
+
         int firstIndex = 0;
         int lastIndex = 0;
 
@@ -16,23 +16,18 @@ class   ParseUrl  {
             if (newUrlStringToArray[i] == '~') {
                 firstIndex = i + 1;
             }
-            if (newUrlStringToArray[i] == newUrlStringToArray[newUrlStringToArray.length - 1]
-                    && i > firstIndex && firstIndex != 0) {
-                lastIndex = newUrlStringToArray.length;
+            if (newUrlStringToArray[i] == '&' && i > firstIndex && firstIndex != 0) {
+                lastIndex = i;
                 break;
-            }
+            } else if (i > firstIndex && firstIndex != 0) {
+                lastIndex = newUrlStringToArray.length;
 
+            }
             if (newUrlStringToArray[firstIndex] == '&') {
                 printIfNotFound();
                 break;
             }
-
-            if (newUrlStringToArray[i] == '&' && i > firstIndex && firstIndex != 0) {
-                lastIndex = i;
-                break;
-            }
         }
-
         for (int i = firstIndex; i < lastIndex; i++) {
             System.out.print(newUrlStringToArray[i]);
         }
