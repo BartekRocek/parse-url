@@ -1,4 +1,4 @@
-# ParseUrl
+# parse-url
 Parsing parameters from a fixed pattern url
     
     You want to hack a website now. First, get all the available parameters that you can find in the URL. Then print
